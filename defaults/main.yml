@@ -1,0 +1,3 @@
+victoriametrics_retention_months: 12
+victoriametrics_container_name: victoriametrics
+victoriametrics_port: 8428

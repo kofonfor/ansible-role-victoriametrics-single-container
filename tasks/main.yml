@@ -1,0 +1,19 @@
+---
+- name: create ext volume for data
+  file: state=directory path={{ ext_victoriametrics_data_volume }}
+
+- name: start a VictoriaMetrics container
+  docker_container:
+    image: valyala/victoria-metrics
+    state: started
+    read_only: yes
+    recreate: yes
+    restart_policy: always
+    hostname: "{{ ansible_hostname }}-{{ victoriametrics_container_name }}"
+    ports:
+      - "{{ victoriametrics_container_host_address }}:{{ victoriametrics_port }}:8428"
+    volumes:
+      - "{{ ext_victoriametrics_data_volume }}:/victoria-metrics-data"
+    name: "{{ victoriametrics_container_name }}"
+    command:
+      - "-retentionPeriod {{ victoriametrics_retention_months }}"
