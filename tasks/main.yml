@@ -4,7 +4,7 @@
 
 - name: start a VictoriaMetrics container
   docker_container:
-    image: valyala/victoria-metrics:{{ victoriametrics_image_tag }}
+    image: victoriametrics/victoria-metrics:{{ victoriametrics_image_tag }}
     state: started
     read_only: yes
     recreate: yes
