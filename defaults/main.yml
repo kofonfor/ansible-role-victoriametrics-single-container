@@ -2,4 +2,4 @@ ext_victoriametrics_data_volume: /var/lib/docker-extvols/victoriametrics/data
 victoriametrics_retention_months: 12
 victoriametrics_container_name: victoriametrics
 victoriametrics_port: 8428
-victoriametrics_image_tag: "v1.19.4"
+victoriametrics_image_tag: "v1.22.2"
